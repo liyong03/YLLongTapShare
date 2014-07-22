@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4ECF3D47197E78C100194637 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D46197E78C100194637 /* Foundation.framework */; };
+		4ECF3D49197E78C100194637 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D48197E78C100194637 /* CoreGraphics.framework */; };
+		4ECF3D4B197E78C100194637 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D4A197E78C100194637 /* UIKit.framework */; };
+		4ECF3D51197E78C100194637 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF3D4F197E78C100194637 /* InfoPlist.strings */; };
+		4ECF3D53197E78C100194637 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECF3D52197E78C100194637 /* main.m */; };
+		4ECF3D57197E78C100194637 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECF3D56197E78C100194637 /* AppDelegate.m */; };
+		4ECF3D5A197E78C100194637 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF3D58197E78C100194637 /* Main.storyboard */; };
+		4ECF3D5D197E78C100194637 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECF3D5C197E78C100194637 /* ViewController.m */; };
+		4ECF3D5F197E78C100194637 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF3D5E197E78C100194637 /* Images.xcassets */; };
+		4ECF3D66197E78C100194637 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D65197E78C100194637 /* XCTest.framework */; };
+		4ECF3D67197E78C100194637 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D46197E78C100194637 /* Foundation.framework */; };
+		4ECF3D68197E78C100194637 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D4A197E78C100194637 /* UIKit.framework */; };
+		4ECF3D70197E78C100194637 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF3D6E197E78C100194637 /* InfoPlist.strings */; };
+		4ECF3D72197E78C100194637 /* YLLongTapShareControlDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECF3D71197E78C100194637 /* YLLongTapShareControlDemoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4ECF3D69197E78C100194637 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4ECF3D3B197E78C100194637 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4ECF3D42197E78C100194637;
+			remoteInfo = YLLongTapShareControlDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4ECF3D43197E78C100194637 /* YLLongTapShareControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLLongTapShareControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ECF3D46197E78C100194637 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4ECF3D48197E78C100194637 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4ECF3D4A197E78C100194637 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4ECF3D4E197E78C100194637 /* YLLongTapShareControlDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YLLongTapShareControlDemo-Info.plist"; sourceTree = "<group>"; };
+		4ECF3D50197E78C100194637 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4ECF3D52197E78C100194637 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4ECF3D54197E78C100194637 /* YLLongTapShareControlDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YLLongTapShareControlDemo-Prefix.pch"; sourceTree = "<group>"; };
+		4ECF3D55197E78C100194637 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4ECF3D56197E78C100194637 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4ECF3D59197E78C100194637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4ECF3D5B197E78C100194637 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4ECF3D5C197E78C100194637 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4ECF3D5E197E78C100194637 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4ECF3D64197E78C100194637 /* YLLongTapShareControlDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YLLongTapShareControlDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ECF3D65197E78C100194637 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4ECF3D6D197E78C100194637 /* YLLongTapShareControlDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YLLongTapShareControlDemoTests-Info.plist"; sourceTree = "<group>"; };
+		4ECF3D6F197E78C100194637 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4ECF3D71197E78C100194637 /* YLLongTapShareControlDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLLongTapShareControlDemoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4ECF3D40197E78C100194637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ECF3D49197E78C100194637 /* CoreGraphics.framework in Frameworks */,
+				4ECF3D4B197E78C100194637 /* UIKit.framework in Frameworks */,
+				4ECF3D47197E78C100194637 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4ECF3D61197E78C100194637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ECF3D66197E78C100194637 /* XCTest.framework in Frameworks */,
+				4ECF3D68197E78C100194637 /* UIKit.framework in Frameworks */,
+				4ECF3D67197E78C100194637 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4ECF3D3A197E78C100194637 = {
+			isa = PBXGroup;
+			children = (
+				4ECF3D4C197E78C100194637 /* YLLongTapShareControlDemo */,
+				4ECF3D6B197E78C100194637 /* YLLongTapShareControlDemoTests */,
+				4ECF3D45197E78C100194637 /* Frameworks */,
+				4ECF3D44197E78C100194637 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4ECF3D44197E78C100194637 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4ECF3D43197E78C100194637 /* YLLongTapShareControlDemo.app */,
+				4ECF3D64197E78C100194637 /* YLLongTapShareControlDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4ECF3D45197E78C100194637 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ECF3D46197E78C100194637 /* Foundation.framework */,
+				4ECF3D48197E78C100194637 /* CoreGraphics.framework */,
+				4ECF3D4A197E78C100194637 /* UIKit.framework */,
+				4ECF3D65197E78C100194637 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4ECF3D4C197E78C100194637 /* YLLongTapShareControlDemo */ = {
+			isa = PBXGroup;
+			children = (
+				4ECF3D55197E78C100194637 /* AppDelegate.h */,
+				4ECF3D56197E78C100194637 /* AppDelegate.m */,
+				4ECF3D58197E78C100194637 /* Main.storyboard */,
+				4ECF3D5B197E78C100194637 /* ViewController.h */,
+				4ECF3D5C197E78C100194637 /* ViewController.m */,
+				4ECF3D5E197E78C100194637 /* Images.xcassets */,
+				4ECF3D4D197E78C100194637 /* Supporting Files */,
+			);
+			path = YLLongTapShareControlDemo;
+			sourceTree = "<group>";
+		};
+		4ECF3D4D197E78C100194637 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4ECF3D4E197E78C100194637 /* YLLongTapShareControlDemo-Info.plist */,
+				4ECF3D4F197E78C100194637 /* InfoPlist.strings */,
+				4ECF3D52197E78C100194637 /* main.m */,
+				4ECF3D54197E78C100194637 /* YLLongTapShareControlDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4ECF3D6B197E78C100194637 /* YLLongTapShareControlDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				4ECF3D71197E78C100194637 /* YLLongTapShareControlDemoTests.m */,
+				4ECF3D6C197E78C100194637 /* Supporting Files */,
+			);
+			path = YLLongTapShareControlDemoTests;
+			sourceTree = "<group>";
+		};
+		4ECF3D6C197E78C100194637 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4ECF3D6D197E78C100194637 /* YLLongTapShareControlDemoTests-Info.plist */,
+				4ECF3D6E197E78C100194637 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4ECF3D42197E78C100194637 /* YLLongTapShareControlDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ECF3D75197E78C100194637 /* Build configuration list for PBXNativeTarget "YLLongTapShareControlDemo" */;
+			buildPhases = (
+				4ECF3D3F197E78C100194637 /* Sources */,
+				4ECF3D40197E78C100194637 /* Frameworks */,
+				4ECF3D41197E78C100194637 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YLLongTapShareControlDemo;
+			productName = YLLongTapShareControlDemo;
+			productReference = 4ECF3D43197E78C100194637 /* YLLongTapShareControlDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4ECF3D63197E78C100194637 /* YLLongTapShareControlDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ECF3D78197E78C100194637 /* Build configuration list for PBXNativeTarget "YLLongTapShareControlDemoTests" */;
+			buildPhases = (
+				4ECF3D60197E78C100194637 /* Sources */,
+				4ECF3D61197E78C100194637 /* Frameworks */,
+				4ECF3D62197E78C100194637 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4ECF3D6A197E78C100194637 /* PBXTargetDependency */,
+			);
+			name = YLLongTapShareControlDemoTests;
+			productName = YLLongTapShareControlDemoTests;
+			productReference = 4ECF3D64197E78C100194637 /* YLLongTapShareControlDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4ECF3D3B197E78C100194637 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Yong Li";
+				TargetAttributes = {
+					4ECF3D63197E78C100194637 = {
+						TestTargetID = 4ECF3D42197E78C100194637;
+					};
+				};
+			};
+			buildConfigurationList = 4ECF3D3E197E78C100194637 /* Build configuration list for PBXProject "YLLongTapShareControlDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4ECF3D3A197E78C100194637;
+			productRefGroup = 4ECF3D44197E78C100194637 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4ECF3D42197E78C100194637 /* YLLongTapShareControlDemo */,
+				4ECF3D63197E78C100194637 /* YLLongTapShareControlDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4ECF3D41197E78C100194637 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ECF3D5F197E78C100194637 /* Images.xcassets in Resources */,
+				4ECF3D51197E78C100194637 /* InfoPlist.strings in Resources */,
+				4ECF3D5A197E78C100194637 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4ECF3D62197E78C100194637 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ECF3D70197E78C100194637 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4ECF3D3F197E78C100194637 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ECF3D5D197E78C100194637 /* ViewController.m in Sources */,
+				4ECF3D57197E78C100194637 /* AppDelegate.m in Sources */,
+				4ECF3D53197E78C100194637 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4ECF3D60197E78C100194637 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ECF3D72197E78C100194637 /* YLLongTapShareControlDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4ECF3D6A197E78C100194637 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4ECF3D42197E78C100194637 /* YLLongTapShareControlDemo */;
+			targetProxy = 4ECF3D69197E78C100194637 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4ECF3D4F197E78C100194637 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ECF3D50197E78C100194637 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4ECF3D58197E78C100194637 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ECF3D59197E78C100194637 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4ECF3D6E197E78C100194637 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ECF3D6F197E78C100194637 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4ECF3D73197E78C100194637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4ECF3D74197E78C100194637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4ECF3D76197E78C100194637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Prefix.pch";
+				INFOPLIST_FILE = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4ECF3D77197E78C100194637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Prefix.pch";
+				INFOPLIST_FILE = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4ECF3D79197E78C100194637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YLLongTapShareControlDemo.app/YLLongTapShareControlDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "YLLongTapShareControlDemoTests/YLLongTapShareControlDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4ECF3D7A197E78C100194637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YLLongTapShareControlDemo.app/YLLongTapShareControlDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Prefix.pch";
+				INFOPLIST_FILE = "YLLongTapShareControlDemoTests/YLLongTapShareControlDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4ECF3D3E197E78C100194637 /* Build configuration list for PBXProject "YLLongTapShareControlDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ECF3D73197E78C100194637 /* Debug */,
+				4ECF3D74197E78C100194637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4ECF3D75197E78C100194637 /* Build configuration list for PBXNativeTarget "YLLongTapShareControlDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ECF3D76197E78C100194637 /* Debug */,
+				4ECF3D77197E78C100194637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4ECF3D78197E78C100194637 /* Build configuration list for PBXNativeTarget "YLLongTapShareControlDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ECF3D79197E78C100194637 /* Debug */,
+				4ECF3D7A197E78C100194637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4ECF3D3B197E78C100194637 /* Project object */;
+}
