@@ -21,6 +21,16 @@
 		4ECF3D68197E78C100194637 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D4A197E78C100194637 /* UIKit.framework */; };
 		4ECF3D70197E78C100194637 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF3D6E197E78C100194637 /* InfoPlist.strings */; };
 		4ECF3D72197E78C100194637 /* YLLongTapShareControlDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECF3D71197E78C100194637 /* YLLongTapShareControlDemoTests.m */; };
+		4EDADD41197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD39197EAA7A001BF09E /* CAAnimation+Blocks.m */; };
+		4EDADD42197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD39197EAA7A001BF09E /* CAAnimation+Blocks.m */; };
+		4EDADD43197EAA7A001BF09E /* Evaluate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3B197EAA7A001BF09E /* Evaluate.m */; };
+		4EDADD44197EAA7A001BF09E /* Evaluate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3B197EAA7A001BF09E /* Evaluate.m */; };
+		4EDADD45197EAA7A001BF09E /* ShareButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3E197EAA7A001BF09E /* ShareButtonView.m */; };
+		4EDADD46197EAA7A001BF09E /* ShareButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3E197EAA7A001BF09E /* ShareButtonView.m */; };
+		4EDADD47197EAA7A001BF09E /* TapEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD40197EAA7A001BF09E /* TapEffectView.m */; };
+		4EDADD48197EAA7A001BF09E /* TapEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD40197EAA7A001BF09E /* TapEffectView.m */; };
+		4EDADD4B197EAAB5001BF09E /* YLLongTapShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */; };
+		4EDADD4C197EAAB5001BF09E /* YLLongTapShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +63,17 @@
 		4ECF3D6D197E78C100194637 /* YLLongTapShareControlDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YLLongTapShareControlDemoTests-Info.plist"; sourceTree = "<group>"; };
 		4ECF3D6F197E78C100194637 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4ECF3D71197E78C100194637 /* YLLongTapShareControlDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLLongTapShareControlDemoTests.m; sourceTree = "<group>"; };
+		4EDADD38197EAA7A001BF09E /* CAAnimation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+Blocks.h"; sourceTree = "<group>"; };
+		4EDADD39197EAA7A001BF09E /* CAAnimation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+Blocks.m"; sourceTree = "<group>"; };
+		4EDADD3A197EAA7A001BF09E /* Evaluate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evaluate.h; sourceTree = "<group>"; };
+		4EDADD3B197EAA7A001BF09E /* Evaluate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evaluate.m; sourceTree = "<group>"; };
+		4EDADD3C197EAA7A001BF09E /* OMVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMVector.h; sourceTree = "<group>"; };
+		4EDADD3D197EAA7A001BF09E /* ShareButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareButtonView.h; sourceTree = "<group>"; };
+		4EDADD3E197EAA7A001BF09E /* ShareButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareButtonView.m; sourceTree = "<group>"; };
+		4EDADD3F197EAA7A001BF09E /* TapEffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapEffectView.h; sourceTree = "<group>"; };
+		4EDADD40197EAA7A001BF09E /* TapEffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapEffectView.m; sourceTree = "<group>"; };
+		4EDADD49197EAAB5001BF09E /* YLLongTapShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLLongTapShareView.h; sourceTree = "<group>"; };
+		4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLLongTapShareView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +103,7 @@
 		4ECF3D3A197E78C100194637 = {
 			isa = PBXGroup;
 			children = (
+				4EDADD37197EAA7A001BF09E /* YLLongTapShareControl */,
 				4ECF3D4C197E78C100194637 /* YLLongTapShareControlDemo */,
 				4ECF3D6B197E78C100194637 /* YLLongTapShareControlDemoTests */,
 				4ECF3D45197E78C100194637 /* Frameworks */,
@@ -150,6 +172,25 @@
 				4ECF3D6E197E78C100194637 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4EDADD37197EAA7A001BF09E /* YLLongTapShareControl */ = {
+			isa = PBXGroup;
+			children = (
+				4EDADD38197EAA7A001BF09E /* CAAnimation+Blocks.h */,
+				4EDADD39197EAA7A001BF09E /* CAAnimation+Blocks.m */,
+				4EDADD3A197EAA7A001BF09E /* Evaluate.h */,
+				4EDADD3B197EAA7A001BF09E /* Evaluate.m */,
+				4EDADD3C197EAA7A001BF09E /* OMVector.h */,
+				4EDADD3D197EAA7A001BF09E /* ShareButtonView.h */,
+				4EDADD3E197EAA7A001BF09E /* ShareButtonView.m */,
+				4EDADD3F197EAA7A001BF09E /* TapEffectView.h */,
+				4EDADD40197EAA7A001BF09E /* TapEffectView.m */,
+				4EDADD49197EAAB5001BF09E /* YLLongTapShareView.h */,
+				4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */,
+			);
+			name = YLLongTapShareControl;
+			path = ../YLLongTapShareControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +290,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDADD45197EAA7A001BF09E /* ShareButtonView.m in Sources */,
+				4EDADD41197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */,
 				4ECF3D5D197E78C100194637 /* ViewController.m in Sources */,
 				4ECF3D57197E78C100194637 /* AppDelegate.m in Sources */,
 				4ECF3D53197E78C100194637 /* main.m in Sources */,
+				4EDADD47197EAA7A001BF09E /* TapEffectView.m in Sources */,
+				4EDADD43197EAA7A001BF09E /* Evaluate.m in Sources */,
+				4EDADD4B197EAAB5001BF09E /* YLLongTapShareView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDADD48197EAA7A001BF09E /* TapEffectView.m in Sources */,
+				4EDADD42197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */,
+				4EDADD44197EAA7A001BF09E /* Evaluate.m in Sources */,
+				4EDADD46197EAA7A001BF09E /* ShareButtonView.m in Sources */,
 				4ECF3D72197E78C100194637 /* YLLongTapShareControlDemoTests.m in Sources */,
+				4EDADD4C197EAAB5001BF09E /* YLLongTapShareView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +430,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Prefix.pch";
 				INFOPLIST_FILE = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Prefix.pch";
 				INFOPLIST_FILE = "YLLongTapShareControlDemo/YLLongTapShareControlDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -456,6 +509,7 @@
 				4ECF3D77197E78C100194637 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ECF3D78197E78C100194637 /* Build configuration list for PBXNativeTarget "YLLongTapShareControlDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +518,7 @@
 				4ECF3D7A197E78C100194637 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
