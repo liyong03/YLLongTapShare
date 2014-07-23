@@ -25,10 +25,10 @@
 		4EDADD42197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD39197EAA7A001BF09E /* CAAnimation+Blocks.m */; };
 		4EDADD43197EAA7A001BF09E /* Evaluate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3B197EAA7A001BF09E /* Evaluate.m */; };
 		4EDADD44197EAA7A001BF09E /* Evaluate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3B197EAA7A001BF09E /* Evaluate.m */; };
-		4EDADD45197EAA7A001BF09E /* ShareButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3E197EAA7A001BF09E /* ShareButtonView.m */; };
-		4EDADD46197EAA7A001BF09E /* ShareButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3E197EAA7A001BF09E /* ShareButtonView.m */; };
-		4EDADD47197EAA7A001BF09E /* TapEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD40197EAA7A001BF09E /* TapEffectView.m */; };
-		4EDADD48197EAA7A001BF09E /* TapEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD40197EAA7A001BF09E /* TapEffectView.m */; };
+		4EDADD45197EAA7A001BF09E /* YLShareButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3E197EAA7A001BF09E /* YLShareButtonView.m */; };
+		4EDADD46197EAA7A001BF09E /* YLShareButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD3E197EAA7A001BF09E /* YLShareButtonView.m */; };
+		4EDADD47197EAA7A001BF09E /* YLShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD40197EAA7A001BF09E /* YLShareView.m */; };
+		4EDADD48197EAA7A001BF09E /* YLShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD40197EAA7A001BF09E /* YLShareView.m */; };
 		4EDADD4B197EAAB5001BF09E /* YLLongTapShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */; };
 		4EDADD4C197EAAB5001BF09E /* YLLongTapShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */; };
 /* End PBXBuildFile section */
@@ -68,10 +68,10 @@
 		4EDADD3A197EAA7A001BF09E /* Evaluate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evaluate.h; sourceTree = "<group>"; };
 		4EDADD3B197EAA7A001BF09E /* Evaluate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evaluate.m; sourceTree = "<group>"; };
 		4EDADD3C197EAA7A001BF09E /* OMVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMVector.h; sourceTree = "<group>"; };
-		4EDADD3D197EAA7A001BF09E /* ShareButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareButtonView.h; sourceTree = "<group>"; };
-		4EDADD3E197EAA7A001BF09E /* ShareButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareButtonView.m; sourceTree = "<group>"; };
-		4EDADD3F197EAA7A001BF09E /* TapEffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapEffectView.h; sourceTree = "<group>"; };
-		4EDADD40197EAA7A001BF09E /* TapEffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapEffectView.m; sourceTree = "<group>"; };
+		4EDADD3D197EAA7A001BF09E /* YLShareButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLShareButtonView.h; sourceTree = "<group>"; };
+		4EDADD3E197EAA7A001BF09E /* YLShareButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShareButtonView.m; sourceTree = "<group>"; };
+		4EDADD3F197EAA7A001BF09E /* YLShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLShareView.h; sourceTree = "<group>"; };
+		4EDADD40197EAA7A001BF09E /* YLShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShareView.m; sourceTree = "<group>"; };
 		4EDADD49197EAAB5001BF09E /* YLLongTapShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLLongTapShareView.h; sourceTree = "<group>"; };
 		4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLLongTapShareView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,10 +182,10 @@
 				4EDADD3A197EAA7A001BF09E /* Evaluate.h */,
 				4EDADD3B197EAA7A001BF09E /* Evaluate.m */,
 				4EDADD3C197EAA7A001BF09E /* OMVector.h */,
-				4EDADD3D197EAA7A001BF09E /* ShareButtonView.h */,
-				4EDADD3E197EAA7A001BF09E /* ShareButtonView.m */,
-				4EDADD3F197EAA7A001BF09E /* TapEffectView.h */,
-				4EDADD40197EAA7A001BF09E /* TapEffectView.m */,
+				4EDADD3D197EAA7A001BF09E /* YLShareButtonView.h */,
+				4EDADD3E197EAA7A001BF09E /* YLShareButtonView.m */,
+				4EDADD3F197EAA7A001BF09E /* YLShareView.h */,
+				4EDADD40197EAA7A001BF09E /* YLShareView.m */,
 				4EDADD49197EAAB5001BF09E /* YLLongTapShareView.h */,
 				4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */,
 			);
@@ -290,12 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDADD45197EAA7A001BF09E /* ShareButtonView.m in Sources */,
+				4EDADD45197EAA7A001BF09E /* YLShareButtonView.m in Sources */,
 				4EDADD41197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */,
 				4ECF3D5D197E78C100194637 /* ViewController.m in Sources */,
 				4ECF3D57197E78C100194637 /* AppDelegate.m in Sources */,
 				4ECF3D53197E78C100194637 /* main.m in Sources */,
-				4EDADD47197EAA7A001BF09E /* TapEffectView.m in Sources */,
+				4EDADD47197EAA7A001BF09E /* YLShareView.m in Sources */,
 				4EDADD43197EAA7A001BF09E /* Evaluate.m in Sources */,
 				4EDADD4B197EAAB5001BF09E /* YLLongTapShareView.m in Sources */,
 			);
@@ -305,10 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDADD48197EAA7A001BF09E /* TapEffectView.m in Sources */,
+				4EDADD48197EAA7A001BF09E /* YLShareView.m in Sources */,
 				4EDADD42197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */,
 				4EDADD44197EAA7A001BF09E /* Evaluate.m in Sources */,
-				4EDADD46197EAA7A001BF09E /* ShareButtonView.m in Sources */,
+				4EDADD46197EAA7A001BF09E /* YLShareButtonView.m in Sources */,
 				4ECF3D72197E78C100194637 /* YLLongTapShareControlDemoTests.m in Sources */,
 				4EDADD4C197EAAB5001BF09E /* YLLongTapShareView.m in Sources */,
 			);

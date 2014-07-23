@@ -1,26 +1,26 @@
 //
-//  TapEffectView.m
+//  YLShareView.m
 //  YLLongTapShareControl
 //
 //  Created by Yong Li on 7/16/14.
 //  Copyright (c) 2014 Yong Li. All rights reserved.
 //
 
-#import "TapEffectView.h"
+#import "YLShareView.h"
 #import "Evaluate.h"
-#import "ShareButtonView.h"
+#import "YLShareButtonView.h"
 #import "OMVector.h"
 
-@interface TapEffectView()
+@interface YLShareView()
 
-@property (nonatomic, assign, readwrite) TapEffectState state;
+@property (nonatomic, assign, readwrite) YLShareViewState state;
 @property (nonatomic, copy) void(^completionHandler)();
 
 @end
 
-@implementation TapEffectView {
+@implementation YLShareView {
     NSMutableArray*     _shareBtns;
-    ShareButtonView*    _selectedView;
+    YLShareButtonView*    _selectedView;
     CGFloat             _avgAng;
     NSTimer*            _selectTimer;
     
@@ -35,7 +35,7 @@
     self = [self initWithFrame:CGRectMake(0, 0, 60, 60)];
     if (self) {
         _shareBtns = [NSMutableArray array];
-        _state = TapEffectUnopen;
+        _state = YLShareViewUnopen;
         _selectedView = nil;
         _isDone = NO;
         [self createAllShareBtnsWithIcons:icons andTitles:titles];
@@ -57,7 +57,7 @@
         p.y = roundf(-distance * sinf(fan) + self.bounds.size.height/2);
         
         CGRect frame = CGRectMake(p.x-shareSize/2, p.y-shareSize/2, shareSize, shareSize);
-        ShareButtonView* view = [[ShareButtonView alloc] initWithIcon:icons[i] andTitle:titles[i]];
+        YLShareButtonView* view = [[YLShareButtonView alloc] initWithIcon:icons[i] andTitle:titles[i]];
         view.frame = frame;
         view.hidden = YES;
         [self addSubview:view];
@@ -103,7 +103,7 @@
     _btnLayer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
 }
 
-- (void)showCircleEffectWithCompletion:(void(^)())handler {
+- (void)showWithCompletion:(void(^)())handler {
     CGFloat edge = MIN(self.bounds.size.width, self.bounds.size.height);
     
     CAShapeLayer* layer = [CAShapeLayer layer];
@@ -179,11 +179,11 @@
     [_bgLayer addAnimation:group2 forKey:@"bgshowup"];
     
     for (int i=0; i<_shareBtns.count; i++) {
-        ShareButtonView* view = (ShareButtonView*)_shareBtns[i];
+        YLShareButtonView* view = (YLShareButtonView*)_shareBtns[i];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((scaleTime + disappTime + 0.05*i) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             view.hidden = NO;
             [view showAnimation];
-            self.state = TapEffectOpened;
+            self.state = YLShareViewOpened;
         });
     }
     
@@ -207,7 +207,7 @@
     layer.beginTime = timeSincePause;
 }
 
-- (void)dismissEnlargeEffect:(void(^)())handler {
+- (void)dismissWithCompletion:(void(^)())handler {
     [self pauseLayer:_layer];
     [self pauseLayer:_btnLayer];
     
@@ -229,7 +229,7 @@
     return result;
 }
 
-- (void)moveTo:(CGPoint)point {
+- (void)slideTo:(CGPoint)point {
     CGFloat radius = 20;
     CGPoint center = {self.bounds.size.width/2, self.bounds.size.height/2};
     CGVector v = CGVectorMakeWithPoints(center, point);
@@ -237,11 +237,11 @@
     if (dis >= radius) {
         dis = radius;
         
-        ShareButtonView* selectedView;
+        YLShareButtonView* selectedView;
         NSInteger selected = -1;
         CGFloat minAng = 2*M_PI;
         for (int i=0; i<_shareBtns.count; i++) {
-            ShareButtonView* view = (ShareButtonView*)_shareBtns[i];
+            YLShareButtonView* view = (YLShareButtonView*)_shareBtns[i];
             CGPoint vP = view.center;
             CGFloat ang = [self angleForCenterPoint:center andPoint1:point andPoint2:vP];
             if (minAng > ang) {
@@ -285,10 +285,12 @@
 - (void)doneSelected {
     _isDone = YES;
     [_selectedView animateToDoneWithHandler:^{
-        if (self.completionHandler) {
-            self.completionHandler();
-        }
-        self.completionHandler = nil;
+        [self dismissWithCompletion:^{
+            if (self.completionHandler) {
+                self.completionHandler();
+            }
+            self.completionHandler = nil;
+        }];
     }];
 }
 

@@ -1,5 +1,5 @@
 //
-//  ShareButtonView.h
+//  YLShareButtonView.h
 //  YLLongTapShareControl
 //
 //  Created by Yong Li on 7/18/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShareButtonView : UIView
+@interface YLShareButtonView : UIView
 
 @property (nonatomic, strong, readonly) UIImage* shareIcon;
 @property (nonatomic, copy, readonly) NSString* shareTitle;

@@ -7,10 +7,10 @@
 //
 
 #import "YLLongTapShareView.h"
-#import "TapEffectView.h"
+#import "YLShareView.h"
 
 @implementation YLLongTapShareView {
-    TapEffectView*  _effectView;
+    YLShareView*  _effectView;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -28,10 +28,10 @@
             UIImage* instaIcon = [UIImage imageNamed:@"instagram"];
             UIImage* facebook = [UIImage imageNamed:@"facebook"];
             
-            TapEffectView* effectView = [[TapEffectView alloc] initWithShareIcons:@[facebook,instaIcon,icon] andTitles:@[@"Facebook", @"instagram", title]];
+            YLShareView* effectView = [[YLShareView alloc] initWithShareIcons:@[facebook,instaIcon,icon] andTitles:@[@"Facebook", @"instagram", title]];
             effectView.center = touchPoint;
             [self addSubview:effectView];
-            [effectView showCircleEffectWithCompletion:^{
+            [effectView showWithCompletion:^{
                 [effectView removeFromSuperview];
             }];
             _effectView = effectView;
@@ -44,14 +44,14 @@
     {
         if (touch) {
             CGPoint touchPoint = [touch locationInView:_effectView];
-            [_effectView moveTo:touchPoint];
+            [_effectView slideTo:touchPoint];
         }
     }
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     NSLog(@"End!");
-    [_effectView dismissEnlargeEffect:^{
+    [_effectView dismissWithCompletion:^{
         [_effectView removeFromSuperview];
     }];
 }
