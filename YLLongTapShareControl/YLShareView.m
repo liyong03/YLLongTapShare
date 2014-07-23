@@ -10,6 +10,7 @@
 #import "Evaluate.h"
 #import "YLShareButtonView.h"
 #import "OMVector.h"
+#import "YLShareAnimationHelper.h"
 
 @interface YLShareView()
 
@@ -25,9 +26,10 @@
     NSTimer*            _selectTimer;
     
     BOOL            _isDone;
+    BOOL            _isDismissed;
     
     CAShapeLayer*   _bgLayer;
-    CALayer*        _layer;
+    CAShapeLayer*   _layer;
     CAShapeLayer*   _btnLayer;
 }
 
@@ -38,6 +40,7 @@
         _state = YLShareViewUnopen;
         _selectedView = nil;
         _isDone = NO;
+        _isDismissed = NO;
         [self createAllShareBtnsWithIcons:icons andTitles:titles];
     }
     
@@ -45,7 +48,7 @@
 }
 
 - (void)createAllShareBtnsWithIcons:(NSArray*)icons andTitles:(NSArray*)titles {
-    int n = icons.count;
+    int n = (int)icons.count;
     const CGFloat distance = 100.f;
     const CGFloat shareSize = 80;
     CGFloat angle = M_PI/(n*2);
@@ -70,6 +73,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        _layer = [CAShapeLayer layer];
+        _layer.fillColor = [UIColor clearColor].CGColor;
+        _layer.strokeColor = [UIColor whiteColor].CGColor;
+        _layer.lineWidth = 2;
+        _layer.lineCap= kCALineCapRound;
+        _layer.lineJoin = kCALineJoinRound;
+        _layer.opacity = 1.0;
+        [self.layer addSublayer:_layer];
+        
         _bgLayer = [CAShapeLayer layer];
         _bgLayer.fillColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8].CGColor;
         _bgLayer.strokeColor = [UIColor whiteColor].CGColor;
@@ -93,6 +106,14 @@
     [super layoutSubviews];
     
     CGRect rect = self.bounds;
+    CGFloat edge = MIN(self.bounds.size.width, self.bounds.size.height);
+    _layer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, edge, edge) cornerRadius:edge/2].CGPath;
+    _layer.bounds = self.bounds;
+    _layer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+    
+    _layer.bounds = self.bounds;
+    _layer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+    
     _bgLayer.path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:rect.size.width/2].CGPath;
     _bgLayer.bounds = rect;
     _bgLayer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
@@ -104,83 +125,42 @@
 }
 
 - (void)showWithCompletion:(void(^)())handler {
-    CGFloat edge = MIN(self.bounds.size.width, self.bounds.size.height);
-    
-    CAShapeLayer* layer = [CAShapeLayer layer];
-    layer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, edge, edge) cornerRadius:edge/2].CGPath;
-    layer.fillColor = [UIColor clearColor].CGColor;
-    layer.strokeColor = [UIColor whiteColor].CGColor;
-    layer.lineWidth = 2;
-    layer.lineCap= kCALineCapRound;
-    layer.lineJoin = kCALineJoinRound;
-    [self.layer addSublayer:layer];
-    layer.bounds = self.bounds;
-    layer.anchorPoint = CGPointMake(0.5, 0.5);
-    layer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-    layer.opacity = 1.0;
-    _layer = layer;
-    
     
     static float scaleTime = 1.0;
     static float disappTime = 0.1;
     CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    //    animation.delegate = self;
     animation.duration = scaleTime;
     animation.fromValue = @(0);
     animation.toValue = @(1);
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-//    animation.fillMode = kCAFillModeForwards;
-//    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = NO;
+    
+    CAAnimation* disappear = [YLShareAnimationHelper scaleAnimationFrom:1.0 to:0.01
+                                                           withDuration:disappTime andDelay:scaleTime
+                                                      andTimingFunction:kCAMediaTimingFunctionEaseOut andIsSpring:NO];
     
     
-    CABasicAnimation* disappear = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    disappear.duration = disappTime;
-    disappear.beginTime = scaleTime;
-    disappear.fromValue = @(1);
-    disappear.toValue = @(0.01);
-    disappear.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    disappear.fillMode = kCAFillModeForwards;
-    disappear.removedOnCompletion = NO;
+    CAAnimationGroup *group = [YLShareAnimationHelper groupAnimationWithAnimations:@[ animation, disappear ]
+                                                                       andDuration:(scaleTime + disappTime)];
+    [_layer addAnimation:group forKey:@"circleProgress"];
     
     
-    CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
-    group.animations = @[ animation, disappear ];
-    group.duration = (scaleTime + disappTime);
-    //group.delegate = self;
-    group.fillMode = kCAFillModeForwards;
-    group.removedOnCompletion = NO;
+    CAAnimation* disappear2 = [YLShareAnimationHelper scaleAnimationFrom:0.01 to:1.0
+                                                                    withDuration:0.8 andDelay:(scaleTime+disappTime)
+                                                               andTimingFunction:nil andIsSpring:YES];
     
-    [layer addAnimation:group forKey:@"tapEffect"];
+    CAAnimation* showOpacity = [YLShareAnimationHelper opacityAnimationFrom:1 to:1
+                                                               withDuration:0.8 andDelay:(scaleTime+disappTime)
+                                                          andTimingFunction:kCAMediaTimingFunctionEaseIn];
     
-    
-    CAKeyframeAnimation* disappear2 = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-//    disappear2.fromValue = @(0.01);
-//    disappear2.toValue = @(1);
-    disappear2.values = [YLSPringAnimation calculateKeyFramesFromeStartValue:0.01 endValue:1.0 interstitialSteps:20];
-    disappear2.fillMode = kCAFillModeForwards;
-    disappear2.removedOnCompletion = NO;
-    disappear2.duration = 0.8;
-    disappear2.beginTime = scaleTime + disappTime;
-    
-    CABasicAnimation* showOpacity = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    showOpacity.duration = 0.8;
-    showOpacity.beginTime = scaleTime + disappTime;
-    showOpacity.fromValue = @(1);
-    showOpacity.toValue = @(1);
-    showOpacity.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    showOpacity.fillMode = kCAFillModeForwards;
-    showOpacity.removedOnCompletion = NO;
-    
-    CAAnimationGroup *group2 = [[CAAnimationGroup alloc] init];
-    group2.animations = @[ disappear2, showOpacity ];
-    group2.duration = (scaleTime + disappTime + 0.8);
-    group2.fillMode = kCAFillModeForwards;
-    group2.removedOnCompletion = NO;
-    [_bgLayer addAnimation:group2 forKey:@"bgshowup"];
+    CAAnimationGroup *group2 = [YLShareAnimationHelper groupAnimationWithAnimations:@[ disappear2, showOpacity ]
+                                                                        andDuration:(scaleTime + disappTime + 0.8)];
+    [_bgLayer addAnimation:group2 forKey:@"showSlideBackground"];
     
     for (int i=0; i<_shareBtns.count; i++) {
         YLShareButtonView* view = (YLShareButtonView*)_shareBtns[i];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((scaleTime + disappTime + 0.05*i) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((scaleTime + disappTime + 0.1*i) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             view.hidden = NO;
             [view showAnimation];
             self.state = YLShareViewOpened;
@@ -208,6 +188,7 @@
 }
 
 - (void)dismissWithCompletion:(void(^)())handler {
+    _isDismissed = YES;
     [self pauseLayer:_layer];
     [self pauseLayer:_btnLayer];
     
@@ -276,10 +257,12 @@
     CGVector newV = CGVectorMultiply(vNorm, dis);
     CGPoint btnPos = CGPointFromStartAndVector(center, newV);
     
-    [CATransaction begin];
-    [CATransaction setAnimationDuration:0];
-    _btnLayer.position = btnPos;
-    [CATransaction commit];
+    if (!_isDismissed) {
+        [CATransaction begin];
+        [CATransaction setAnimationDuration:0];
+        _btnLayer.position = btnPos;
+        [CATransaction commit];
+    }
 }
 
 - (void)doneSelected {

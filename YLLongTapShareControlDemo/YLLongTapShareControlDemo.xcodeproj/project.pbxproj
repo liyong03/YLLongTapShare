@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E086299197F5D8600957633 /* YLShareAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E086298197F5D8600957633 /* YLShareAnimationHelper.m */; };
+		4E08629A197F5D8600957633 /* YLShareAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E086298197F5D8600957633 /* YLShareAnimationHelper.m */; };
 		4ECF3D47197E78C100194637 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D46197E78C100194637 /* Foundation.framework */; };
 		4ECF3D49197E78C100194637 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D48197E78C100194637 /* CoreGraphics.framework */; };
 		4ECF3D4B197E78C100194637 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECF3D4A197E78C100194637 /* UIKit.framework */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E086297197F5D8600957633 /* YLShareAnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLShareAnimationHelper.h; sourceTree = "<group>"; };
+		4E086298197F5D8600957633 /* YLShareAnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShareAnimationHelper.m; sourceTree = "<group>"; };
 		4ECF3D43197E78C100194637 /* YLLongTapShareControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLLongTapShareControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECF3D46197E78C100194637 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4ECF3D48197E78C100194637 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -188,6 +192,8 @@
 				4EDADD40197EAA7A001BF09E /* YLShareView.m */,
 				4EDADD49197EAAB5001BF09E /* YLLongTapShareView.h */,
 				4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */,
+				4E086297197F5D8600957633 /* YLShareAnimationHelper.h */,
+				4E086298197F5D8600957633 /* YLShareAnimationHelper.m */,
 			);
 			name = YLLongTapShareControl;
 			path = ../YLLongTapShareControl;
@@ -294,6 +300,7 @@
 				4EDADD41197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */,
 				4ECF3D5D197E78C100194637 /* ViewController.m in Sources */,
 				4ECF3D57197E78C100194637 /* AppDelegate.m in Sources */,
+				4E086299197F5D8600957633 /* YLShareAnimationHelper.m in Sources */,
 				4ECF3D53197E78C100194637 /* main.m in Sources */,
 				4EDADD47197EAA7A001BF09E /* YLShareView.m in Sources */,
 				4EDADD43197EAA7A001BF09E /* Evaluate.m in Sources */,
@@ -306,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EDADD48197EAA7A001BF09E /* YLShareView.m in Sources */,
+				4E08629A197F5D8600957633 /* YLShareAnimationHelper.m in Sources */,
 				4EDADD42197EAA7A001BF09E /* CAAnimation+Blocks.m in Sources */,
 				4EDADD44197EAA7A001BF09E /* Evaluate.m in Sources */,
 				4EDADD46197EAA7A001BF09E /* YLShareButtonView.m in Sources */,

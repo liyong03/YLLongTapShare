@@ -9,6 +9,7 @@
 #import "YLShareButtonView.h"
 #import "Evaluate.h"
 #import "CAAnimation+Blocks.h"
+#import "YLShareAnimationHelper.h"
 
 @interface YLShareButtonView()
 
