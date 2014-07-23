@@ -48,6 +48,34 @@
     return opacityAnimation;
 }
 
++ (CAAnimation*)positionYAnimationFrom:(CGFloat)beginY to:(CGFloat)finalY withDuration:(CGFloat)duration andDelay:(CGFloat)delay andTimingFunction:(NSString*)timingFunc {
+    
+    CABasicAnimation* yPosition = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    yPosition.duration = duration;
+    yPosition.beginTime = delay;
+    yPosition.fromValue = @(beginY);
+    yPosition.toValue = @(finalY);
+    yPosition.timingFunction = [CAMediaTimingFunction functionWithName:timingFunc];
+    yPosition.fillMode = kCAFillModeForwards;
+    yPosition.removedOnCompletion = NO;
+    
+    return yPosition;
+}
+
++ (CAAnimation*)fillColorAnimationFrom:(UIColor*)beginColor to:(UIColor*)finalColor withDuration:(CGFloat)duration andDelay:(CGFloat)delay andTimingFunction:(NSString*)timingFunc {
+    
+    CABasicAnimation* fillColor = [CABasicAnimation animationWithKeyPath:@"fillColor"];
+    fillColor.duration = duration;
+    fillColor.beginTime = delay;
+    fillColor.fromValue = (id)beginColor.CGColor;
+    fillColor.toValue = (id)finalColor.CGColor;
+    fillColor.timingFunction = [CAMediaTimingFunction functionWithName:timingFunc];
+    fillColor.fillMode = kCAFillModeForwards;
+    fillColor.removedOnCompletion = NO;
+    
+    return fillColor;
+}
+
 + (CAAnimationGroup*)groupAnimationWithAnimations:(NSArray*)animations andDuration:(CGFloat)duration {
     CAAnimationGroup *groupAnimation = [[CAAnimationGroup alloc] init];
     groupAnimation.animations = animations;

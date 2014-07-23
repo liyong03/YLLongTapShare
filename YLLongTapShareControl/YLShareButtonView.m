@@ -110,114 +110,66 @@
         return;
     _isDone = YES;
     
-    CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-    animation.duration = 0.5;
-    animation.fromValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor;
-    animation.toValue = (id)[UIColor whiteColor].CGColor;
-    //animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    animation.fillMode = kCAFillModeForwards;
-    animation.removedOnCompletion = NO;
+    CAAnimation* animation = [YLShareAnimationHelper fillColorAnimationFrom:[[UIColor whiteColor] colorWithAlphaComponent:0.5]
+                                                                        to:[UIColor whiteColor]
+                                                              withDuration:0.5 andDelay:0
+                                                         andTimingFunction:kCAMediaTimingFunctionEaseOut];
     
-    [_iconLayer addAnimation:animation forKey:@"done"];
+    [_iconLayer addAnimation:animation forKey:@"fillToWhite"];
     
     _doneMarkLabel.hidden = NO;
     _doneMarkLabel.layer.opacity = 0;
-    CABasicAnimation* doneappear = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    doneappear.duration = 0.5;
-    doneappear.beginTime = 0.0;
-    doneappear.fromValue = @(0);
-    doneappear.toValue = @(1);
-    doneappear.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    doneappear.fillMode = kCAFillModeForwards;
-    doneappear.removedOnCompletion = NO;
+    CAAnimation* doneappear = [YLShareAnimationHelper opacityAnimationFrom:0 to:1
+                                                              withDuration:0.5 andDelay:0
+                                                         andTimingFunction:kCAMediaTimingFunctionEaseIn];
+    CAAnimation* moveUp3 = [YLShareAnimationHelper scaleAnimationFrom:1.2 to:1
+                                                         withDuration:0.5 andDelay:0
+                                                    andTimingFunction:kCAMediaTimingFunctionEaseIn andIsSpring:NO];
     
-    CABasicAnimation* moveUp3 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    moveUp3.duration = 0.5;
-    moveUp3.beginTime = 0.0;
-    moveUp3.fromValue = @(1.2);
-    moveUp3.toValue = @(1);
-    moveUp3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    moveUp3.fillMode = kCAFillModeForwards;
-    moveUp3.removedOnCompletion = NO;
+    CAAnimationGroup* doneMarkAnimation = [YLShareAnimationHelper groupAnimationWithAnimations:@[ doneappear, moveUp3 ]
+                                                                                   andDuration:0.5];
     
-    CAAnimationGroup* doneMarkAnimation = [[CAAnimationGroup alloc] init];
-    doneMarkAnimation.animations = @[ doneappear, moveUp3 ];
-    doneMarkAnimation.duration = 0.5;
-    doneMarkAnimation.delegate = self;
-    doneMarkAnimation.fillMode = kCAFillModeForwards;
-    doneMarkAnimation.removedOnCompletion = NO;
-    [_doneMarkLabel.layer addAnimation:doneMarkAnimation forKey:@"doneAnimation"];
+    [_doneMarkLabel.layer addAnimation:doneMarkAnimation forKey:@"showDoneMark"];
     
     
-    CABasicAnimation* disappear = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    disappear.duration = 0.2;
-    disappear.beginTime = 0.3;
-    disappear.fromValue = @(1);
-    disappear.toValue = @(0);
-    disappear.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    disappear.fillMode = kCAFillModeForwards;
-    disappear.removedOnCompletion = NO;
+    CAAnimation* disappear = [YLShareAnimationHelper opacityAnimationFrom:1 to:0
+                                                             withDuration:0.2 andDelay:0.3
+                                                        andTimingFunction:kCAMediaTimingFunctionEaseIn];
     
-    CABasicAnimation* moveUp = [CABasicAnimation animationWithKeyPath:@"position.y"];
-    moveUp.duration = 0.2;
-    moveUp.beginTime = 0.3;
-    moveUp.fromValue = @(_titleLabel.layer.position.y);
-    moveUp.toValue = @(_titleLabel.layer.position.y-20);
-    moveUp.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    moveUp.fillMode = kCAFillModeForwards;
-    moveUp.removedOnCompletion = NO;
+    CAAnimation* moveUp = [YLShareAnimationHelper positionYAnimationFrom:_titleLabel.layer.position.y
+                                                                      to:_titleLabel.layer.position.y-20
+                                                            withDuration:0.2 andDelay:0.3
+                                                       andTimingFunction:kCAMediaTimingFunctionEaseIn];
     
-    CAAnimationGroup* titleAnimation = [[CAAnimationGroup alloc] init];
-    titleAnimation.animations = @[ disappear, moveUp ];
-    titleAnimation.duration = 0.5;
-    titleAnimation.delegate = self;
-    titleAnimation.fillMode = kCAFillModeForwards;
-    titleAnimation.removedOnCompletion = NO;
+    CAAnimationGroup* titleAnimation = [YLShareAnimationHelper groupAnimationWithAnimations:@[ disappear, moveUp ]
+                                                                                andDuration:0.5];
     
-    [_titleLabel.layer addAnimation:titleAnimation forKey:@"moveup"];
+    [_titleLabel.layer addAnimation:titleAnimation forKey:@"titleMoveOut"];
     
     _doneLabel.hidden = NO;
     _doneLabel.layer.opacity = 0;
-    CABasicAnimation* appear = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    appear.duration = 0.2;
-    appear.beginTime = 0.3;
-    appear.fromValue = @(0);
-    appear.toValue = @(1);
-    appear.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    appear.fillMode = kCAFillModeForwards;
-    appear.removedOnCompletion = NO;
+    CAAnimation* appear = [YLShareAnimationHelper opacityAnimationFrom:0 to:1
+                                                          withDuration:0.2 andDelay:0.3
+                                                     andTimingFunction:kCAMediaTimingFunctionEaseIn];
     
-    CABasicAnimation* moveUp2 = [CABasicAnimation animationWithKeyPath:@"position.y"];
-    moveUp2.duration = 0.2;
-    moveUp2.beginTime = 0.3;
-    moveUp2.fromValue = @(_doneLabel.layer.position.y+20);
-    moveUp2.toValue = @(_doneLabel.layer.position.y);
-    moveUp2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    moveUp2.fillMode = kCAFillModeForwards;
-    moveUp2.removedOnCompletion = NO;
+    CAAnimation* moveUp2 = [YLShareAnimationHelper positionYAnimationFrom:_doneLabel.layer.position.y+20
+                                                                       to:_doneLabel.layer.position.y
+                                                             withDuration:0.2 andDelay:0.3
+                                                        andTimingFunction:kCAMediaTimingFunctionEaseIn];
     
-    CAAnimationGroup* doneAnimation = [[CAAnimationGroup alloc] init];
-    doneAnimation.animations = @[ appear, moveUp2 ];
-    doneAnimation.duration = 1.0;
-    doneAnimation.delegate = self;
-    doneAnimation.fillMode = kCAFillModeForwards;
-    doneAnimation.removedOnCompletion = NO;
+    CAAnimationGroup* doneAnimation = [YLShareAnimationHelper groupAnimationWithAnimations:@[ appear, moveUp2 ]
+                                                                               andDuration:1.0];
     doneAnimation.completion = ^(BOOL finished) {
         doneBlock();
     };
-    [_doneLabel.layer addAnimation:doneAnimation forKey:@"doneAnimation"];
+    [_doneLabel.layer addAnimation:doneAnimation forKey:@"doneMoveIn"];
 }
 
 - (void)showAnimation {
     
-    CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-    animation.delegate = self;
-    animation.duration = 0.8;
-    animation.values = [YLSPringAnimation calculateKeyFramesFromeStartValue:0.01 endValue:1.0 interstitialSteps:20];
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    animation.fillMode = kCAFillModeForwards;
-    animation.removedOnCompletion = NO;
-    
+    CAAnimation* animation = [YLShareAnimationHelper scaleAnimationFrom:0.01 to:1.0
+                                                           withDuration:0.8 andDelay:0.0
+                                                      andTimingFunction:nil andIsSpring:YES];
     [self.layer addAnimation:animation forKey:@"showAnimation"];
 }
 
@@ -227,39 +179,25 @@
         return;
     
     _isSelected = YES;
-    CABasicAnimation* enlarge = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    enlarge.duration = 0.25;
-    enlarge.fromValue = @(1);
-    enlarge.toValue = @(1.1);
-    enlarge.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    enlarge.fillMode = kCAFillModeForwards;
-    enlarge.removedOnCompletion = NO;
+    CAAnimation* enlarge = [YLShareAnimationHelper scaleAnimationFrom:1 to:1.1
+                                                         withDuration:0.25 andDelay:0
+                                                    andTimingFunction:kCAMediaTimingFunctionEaseOut andIsSpring:NO];
     
-    CABasicAnimation* moveUp = [CABasicAnimation animationWithKeyPath:@"position.y"];
-    moveUp.duration = 0.25;
-    moveUp.fromValue = @(self.layer.position.y);
-    moveUp.toValue = @(self.layer.position.y-10);
-    moveUp.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    moveUp.fillMode = kCAFillModeForwards;
-    moveUp.removedOnCompletion = NO;
+    CAAnimation* moveUp = [YLShareAnimationHelper positionYAnimationFrom:self.layer.position.y
+                                                                      to:self.layer.position.y-10
+                                                            withDuration:0.25 andDelay:0
+                                                       andTimingFunction:kCAMediaTimingFunctionEaseOut];
     
-    CAAnimationGroup* selectAnimation = [[CAAnimationGroup alloc] init];
-    selectAnimation.animations = @[enlarge, moveUp];
-    selectAnimation.duration = 0.25;
-    selectAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    selectAnimation.fillMode = kCAFillModeForwards;
-    selectAnimation.removedOnCompletion = NO;
+    CAAnimationGroup* selectAnimation = [YLShareAnimationHelper groupAnimationWithAnimations:@[enlarge, moveUp]
+                                                                                 andDuration:0.25];
     
     [self.layer addAnimation:selectAnimation forKey:@"selectAnimation"];
     
     
-    CABasicAnimation* blend = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-    blend.duration = 0.25;
-    blend.fromValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0].CGColor;
-    blend.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor;
-    blend.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    blend.fillMode = kCAFillModeForwards;
-    blend.removedOnCompletion = NO;
+    CAAnimation* blend = [YLShareAnimationHelper fillColorAnimationFrom:[[UIColor whiteColor] colorWithAlphaComponent:0]
+                                                                     to:[[UIColor whiteColor] colorWithAlphaComponent:0.5]
+                                                           withDuration:0.25 andDelay:0
+                                                      andTimingFunction:kCAMediaTimingFunctionEaseOut];
     [_iconLayer addAnimation:blend forKey:@"blend"];
 }
 
@@ -269,38 +207,24 @@
     
     _isSelected = NO;
     
-    CABasicAnimation* shrink = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    shrink.duration = 0.25;
-    shrink.fromValue = @(1.1);
-    shrink.toValue = @(1);
-    shrink.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    shrink.fillMode = kCAFillModeForwards;
-    shrink.removedOnCompletion = NO;
+    CAAnimation* shrink = [YLShareAnimationHelper scaleAnimationFrom:1.1 to:1.0
+                                                        withDuration:0.25 andDelay:0
+                                                   andTimingFunction:kCAMediaTimingFunctionEaseOut andIsSpring:NO];
     
-    CABasicAnimation* moveDown = [CABasicAnimation animationWithKeyPath:@"position.y"];
-    moveDown.duration = 0.25;
-    moveDown.fromValue = @(self.layer.position.y-10);
-    moveDown.toValue = @(self.layer.position.y);
-    moveDown.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    moveDown.fillMode = kCAFillModeForwards;
-    moveDown.removedOnCompletion = NO;
+    CAAnimation* moveDown = [YLShareAnimationHelper positionYAnimationFrom:self.layer.position.y-10
+                                                                        to:self.layer.position.y
+                                                              withDuration:0.25 andDelay:0
+                                                         andTimingFunction:kCAMediaTimingFunctionEaseOut];
     
-    CAAnimationGroup* unSelectAnimation = [[CAAnimationGroup alloc] init];
-    unSelectAnimation.animations = @[shrink, moveDown];
-    unSelectAnimation.duration = 0.25;
-    unSelectAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    unSelectAnimation.fillMode = kCAFillModeForwards;
-    unSelectAnimation.removedOnCompletion = NO;
+    CAAnimationGroup* unSelectAnimation = [YLShareAnimationHelper groupAnimationWithAnimations:@[shrink, moveDown]
+                                                                                   andDuration:0.25];
     
     [self.layer addAnimation:unSelectAnimation forKey:@"unSelectAnimation"];
     
-    CABasicAnimation* blend = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-    blend.duration = 0.25;
-    blend.fromValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor;
-    blend.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0].CGColor;
-    blend.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    blend.fillMode = kCAFillModeForwards;
-    blend.removedOnCompletion = NO;
+    CAAnimation* blend = [YLShareAnimationHelper fillColorAnimationFrom:[[UIColor whiteColor] colorWithAlphaComponent:0.5]
+                                                                     to:[[UIColor whiteColor] colorWithAlphaComponent:0]
+                                                           withDuration:0.25 andDelay:0
+                                                      andTimingFunction:kCAMediaTimingFunctionEaseOut];
     [_iconLayer addAnimation:blend forKey:@"blend"];
 }
 

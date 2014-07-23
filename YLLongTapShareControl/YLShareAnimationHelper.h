@@ -21,8 +21,21 @@
  */
 + (CAAnimation*)opacityAnimationFrom:(CGFloat)beginOpacity to:(CGFloat)finalOpacity withDuration:(CGFloat)duration andDelay:(CGFloat)delay andTimingFunction:(NSString*)timingFunc;
 
+
+/*
+ * Y position animation
+ */
++ (CAAnimation*)positionYAnimationFrom:(CGFloat)beginY to:(CGFloat)finalY withDuration:(CGFloat)duration andDelay:(CGFloat)delay andTimingFunction:(NSString*)timingFunc;
+
+
+/*
+ * Fillcolor animation
+ */
++ (CAAnimation*)fillColorAnimationFrom:(UIColor*)beginColor to:(UIColor*)finalColor withDuration:(CGFloat)duration andDelay:(CGFloat)delay andTimingFunction:(NSString*)timingFunc;
+
 /*
  * Group animation
  */
 + (CAAnimationGroup*)groupAnimationWithAnimations:(NSArray*)animations andDuration:(CGFloat)duration;
+
 @end
