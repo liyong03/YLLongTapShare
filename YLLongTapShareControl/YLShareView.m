@@ -214,6 +214,8 @@
     CGFloat radius = 20;
     CGPoint center = {self.bounds.size.width/2, self.bounds.size.height/2};
     CGVector v = CGVectorMakeWithPoints(center, point);
+    if (CGPointEqualToPoint(center, point))
+        return;
     CGFloat dis = CGVectorLength(v);
     if (dis >= radius) {
         dis = radius;
