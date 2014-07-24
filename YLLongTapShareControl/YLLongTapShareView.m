@@ -9,8 +9,27 @@
 #import "YLLongTapShareView.h"
 #import "YLShareView.h"
 
+@interface YLLongTapShareView ()
+
+@property (nonatomic, strong, readonly) NSMutableArray *shareItems;
+
+@end
+
 @implementation YLLongTapShareView {
-    YLShareView*  _effectView;
+    YLShareView*    _effectView;
+}
+@synthesize shareItems = _shareItems;
+
+- (NSMutableArray*)shareItems {
+    if (!_shareItems) {
+        _shareItems = [NSMutableArray array];
+    }
+    
+    return _shareItems;
+}
+
+- (void)addShareItem:(YLShareItem*)item {
+    [self.shareItems addObject:item];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -22,13 +41,7 @@
         if (touch) {
             CGPoint touchPoint = [touch locationInView:self];
             
-            UIImage* icon = [UIImage imageNamed:@"pinterest"];
-            NSString* title = @"Pinterest";
-            
-            UIImage* instaIcon = [UIImage imageNamed:@"instagram"];
-            UIImage* facebook = [UIImage imageNamed:@"facebook"];
-            
-            YLShareView* effectView = [[YLShareView alloc] initWithShareIcons:@[facebook,instaIcon,icon] andTitles:@[@"Facebook", @"instagram", title]];
+            YLShareView* effectView = [[YLShareView alloc] initWithShareItems:self.shareItems];
             effectView.center = touchPoint;
             [self addSubview:effectView];
             [effectView showWithCompletion:^{

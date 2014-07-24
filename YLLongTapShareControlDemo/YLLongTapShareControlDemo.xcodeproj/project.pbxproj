@@ -186,14 +186,14 @@
 				4EDADD3A197EAA7A001BF09E /* Evaluate.h */,
 				4EDADD3B197EAA7A001BF09E /* Evaluate.m */,
 				4EDADD3C197EAA7A001BF09E /* OMVector.h */,
+				4E086297197F5D8600957633 /* YLShareAnimationHelper.h */,
+				4E086298197F5D8600957633 /* YLShareAnimationHelper.m */,
 				4EDADD3D197EAA7A001BF09E /* YLShareButtonView.h */,
 				4EDADD3E197EAA7A001BF09E /* YLShareButtonView.m */,
 				4EDADD3F197EAA7A001BF09E /* YLShareView.h */,
 				4EDADD40197EAA7A001BF09E /* YLShareView.m */,
 				4EDADD49197EAAB5001BF09E /* YLLongTapShareView.h */,
 				4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */,
-				4E086297197F5D8600957633 /* YLShareAnimationHelper.h */,
-				4E086298197F5D8600957633 /* YLShareAnimationHelper.m */,
 			);
 			name = YLLongTapShareControl;
 			path = ../YLLongTapShareControl;

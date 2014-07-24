@@ -12,6 +12,18 @@
 #import "OMVector.h"
 #import "YLShareAnimationHelper.h"
 
+@implementation YLShareItem
+
++ (YLShareItem*)itemWithIcon:(UIImage*)icon andTitle:(NSString*)title {
+    YLShareItem* item = [[YLShareItem alloc] init];
+    item.icon = icon;
+    item.title = title;
+    
+    return item;
+}
+
+@end
+
 @interface YLShareView()
 
 @property (nonatomic, assign, readwrite) YLShareViewState state;
@@ -20,20 +32,21 @@
 @end
 
 @implementation YLShareView {
+    NSArray*            _shareItems;
     NSMutableArray*     _shareBtns;
-    YLShareButtonView*    _selectedView;
+    YLShareButtonView*  _selectedView;
     CGFloat             _avgAng;
     NSTimer*            _selectTimer;
     
-    BOOL            _isDone;
-    BOOL            _isDismissed;
+    BOOL                _isDone;
+    BOOL                _isDismissed;
     
-    CAShapeLayer*   _bgLayer;
-    CAShapeLayer*   _layer;
-    CAShapeLayer*   _btnLayer;
+    CAShapeLayer*       _bgLayer;
+    CAShapeLayer*       _layer;
+    CAShapeLayer*       _btnLayer;
 }
 
-- (id)initWithShareIcons:(NSArray*)icons andTitles:(NSArray*)titles {
+- (id)initWithShareItems:(NSArray*)shareItems {
     self = [self initWithFrame:CGRectMake(0, 0, 60, 60)];
     if (self) {
         _shareBtns = [NSMutableArray array];
@@ -41,26 +54,28 @@
         _selectedView = nil;
         _isDone = NO;
         _isDismissed = NO;
-        [self createAllShareBtnsWithIcons:icons andTitles:titles];
+        _shareItems = shareItems;
+        [self createAllShareBtnsWithShareItems:shareItems];
     }
     
     return self;
 }
 
-- (void)createAllShareBtnsWithIcons:(NSArray*)icons andTitles:(NSArray*)titles {
-    int n = (int)icons.count;
+- (void)createAllShareBtnsWithShareItems:(NSArray*)shareItems {
+    int n = (int)shareItems.count;
     const CGFloat distance = 100.f;
     const CGFloat shareSize = 80;
     CGFloat angle = M_PI/(n*2);
     _avgAng = angle;
     for (int i=0; i<n; i++) {
+        YLShareItem* item = (YLShareItem*)shareItems[i];
         CGFloat fan = angle*(i*2+1);
         CGPoint p;
         p.x = roundf(-distance * cosf(fan) + self.bounds.size.width/2);
         p.y = roundf(-distance * sinf(fan) + self.bounds.size.height/2);
         
         CGRect frame = CGRectMake(p.x-shareSize/2, p.y-shareSize/2, shareSize, shareSize);
-        YLShareButtonView* view = [[YLShareButtonView alloc] initWithIcon:icons[i] andTitle:titles[i]];
+        YLShareButtonView* view = [[YLShareButtonView alloc] initWithIcon:item.icon andTitle:item.title];
         view.frame = frame;
         view.hidden = YES;
         [self addSubview:view];

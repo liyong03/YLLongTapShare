@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YLShareView.h"
 
 @interface YLLongTapShareView : UIView
+
+- (void)addShareItem:(YLShareItem*)item;
 
 @end

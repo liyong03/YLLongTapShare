@@ -13,11 +13,20 @@ typedef NS_ENUM(NSUInteger, YLShareViewState) {
     YLShareViewOpened,
 };
 
+@interface YLShareItem : NSObject
+
+@property (nonatomic, strong) UIImage* icon;
+@property (nonatomic, copy) NSString* title;
+
++ (YLShareItem*)itemWithIcon:(UIImage*)icon andTitle:(NSString*)title;
+
+@end
+
 @interface YLShareView : UIView
 
 @property (nonatomic, assign, readonly) YLShareViewState state;
 
-- (id)initWithShareIcons:(NSArray*)icons andTitles:(NSArray*)titles;
+- (id)initWithShareItems:(NSArray*)shareItems;
 
 - (void)showWithCompletion:(void(^)())handler;
 - (void)dismissWithCompletion:(void(^)())handler;
