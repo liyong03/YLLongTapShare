@@ -288,18 +288,17 @@
 - (void)doneSelected {
     _isDone = YES;
     NSUInteger i = [_shareBtns indexOfObject:_selectedView];
+    __weak typeof(self) weakSelf = self;
+    __weak typeof(_shareItems) weakShareItems = _shareItems;
     [_selectedView animateToDoneWithHandler:^{
-        if (self.completionHandler) {
-            self.completionHandler(i, _shareItems[i]);
-            self.completionHandler = nil;
+        if (weakSelf.completionHandler) {
+            weakSelf.completionHandler(i, weakShareItems[i]);
+            weakSelf.completionHandler = nil;
         }
-        [self dismissShareView];
+        [weakSelf dismissShareView];
     }];
-}
-
-- (void)dealloc
-{
-    NSLog(@"dealloc Share view");
+    [_selectTimer invalidate];
+    _selectTimer = nil;
 }
 
 @end
