@@ -22,14 +22,16 @@ typedef NS_ENUM(NSUInteger, YLShareViewState) {
 
 @end
 
+typedef void (^SelectedHandler)(NSUInteger index, YLShareItem* item);
+
 @interface YLShareView : UIView
 
 @property (nonatomic, assign, readonly) YLShareViewState state;
 
 - (id)initWithShareItems:(NSArray*)shareItems;
 
-- (void)showWithCompletion:(void(^)())handler;
-- (void)dismissWithCompletion:(void(^)())handler;
+- (void)showShareViewInView:(UIView*)view at:(CGPoint)point withCompletion:(SelectedHandler)handler;
+- (void)dismissShareView;
 
 /*
  *  point should be in the coordinate of current view

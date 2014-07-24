@@ -42,9 +42,7 @@
             CGPoint touchPoint = [touch locationInView:self];
             
             YLShareView* effectView = [[YLShareView alloc] initWithShareItems:self.shareItems];
-            effectView.center = touchPoint;
-            [self addSubview:effectView];
-            [effectView showWithCompletion:^{
+            [effectView showShareViewInView:self at:touchPoint withCompletion:^(NSUInteger index, YLShareItem *item) {
                 [effectView removeFromSuperview];
             }];
             _effectView = effectView;
@@ -64,9 +62,7 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     NSLog(@"End!");
-    [_effectView dismissWithCompletion:^{
-        [_effectView removeFromSuperview];
-    }];
+    [_effectView dismissShareView];
 }
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesCancelled:touches withEvent:event];

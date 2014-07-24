@@ -27,7 +27,7 @@
 @interface YLShareView()
 
 @property (nonatomic, assign, readwrite) YLShareViewState state;
-@property (nonatomic, copy) void(^completionHandler)();
+@property (nonatomic, copy) SelectedHandler completionHandler;
 
 @end
 
@@ -139,7 +139,10 @@
     _btnLayer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
 }
 
-- (void)showWithCompletion:(void(^)())handler {
+- (void)showShareViewInView:(UIView*)view at:(CGPoint)point withCompletion:(SelectedHandler)handler {
+    
+    self.center = point;
+    [view addSubview:self];
     
     static float scaleTime = 1.0;
     static float disappTime = 0.1;
@@ -202,7 +205,7 @@
     layer.beginTime = timeSincePause;
 }
 
-- (void)dismissWithCompletion:(void(^)())handler {
+- (void)dismissShareView {
     _isDismissed = YES;
     [self pauseLayer:_layer];
     [self pauseLayer:_btnLayer];
@@ -210,7 +213,7 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.alpha = 0;
     } completion:^(BOOL finished) {
-        handler();
+        [self removeFromSuperview];
     }];
 }
 
@@ -284,13 +287,13 @@
 
 - (void)doneSelected {
     _isDone = YES;
+    NSUInteger i = [_shareBtns indexOfObject:_selectedView];
     [_selectedView animateToDoneWithHandler:^{
-        [self dismissWithCompletion:^{
-            if (self.completionHandler) {
-                self.completionHandler();
-            }
+        if (self.completionHandler) {
+            self.completionHandler(i, _shareItems[i]);
             self.completionHandler = nil;
-        }];
+        }
+        [self dismissShareView];
     }];
 }
 
