@@ -297,4 +297,9 @@
     }];
 }
 
+- (void)dealloc
+{
+    NSLog(@"dealloc Share view");
+}
+
 @end
