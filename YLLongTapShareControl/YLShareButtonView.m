@@ -32,7 +32,7 @@
 
 - (id)initWithIcon:(UIImage*)icon andTitle:(NSString*)title
 {
-    self = [super initWithFrame:CGRectMake(0, 0, 100, 100)];
+    self = [super initWithFrame:CGRectMake(0, 0, 80, 80)];
     if (self) {
         // Initialization code
         _shareIcon = icon;
@@ -46,9 +46,10 @@
 }
 
 - (void)_setup {
-    
+    self.backgroundColor = [UIColor clearColor];
     _iconView = [[UIImageView alloc] initWithImage:_shareIcon];
     _iconView.contentMode = UIViewContentModeScaleAspectFit;
+    _iconView.backgroundColor = [UIColor clearColor];
     _doneMarkLabel = [[UILabel alloc] init];
     _doneMarkLabel.text = @"✔︎";
     _doneMarkLabel.textColor = [UIColor grayColor];
@@ -71,6 +72,7 @@
     _doneLabel.font = [UIFont systemFontOfSize:14];
     _doneLabel.textColor = [UIColor whiteColor];
     _doneLabel.backgroundColor = [UIColor clearColor];
+    [_doneLabel sizeToFit];
     
     [self addSubview:_iconView];
     [self addSubview:_doneMarkLabel];
@@ -89,16 +91,15 @@
 
 - (void)layoutSubviews {
     CGRect frame = self.bounds;
-    CGFloat labelHeight = _titleLabel.frame.size.height;
-    _titleLabel.frame = CGRectMake(0, frame.size.height - labelHeight, frame.size.width, labelHeight);
-    _doneLabel.frame = _titleLabel.frame;
+    _titleLabel.frame = CGRectIntegral(CGRectMake(0.5*(frame.size.width - _titleLabel.frame.size.width), frame.size.height, _titleLabel.frame.size.width, _titleLabel.frame.size.height));
+    _doneLabel.frame = CGRectIntegral(CGRectMake(0.5*(frame.size.width - _doneLabel.frame.size.width), frame.size.height, _doneLabel.frame.size.width, _doneLabel.frame.size.height));
     
-    frame.size.height -= labelHeight;
+    //frame.size.height -= labelHeight;
     CGFloat wid = MIN(frame.size.width, frame.size.height);
     CGRect square = CGRectMake((frame.size.width-wid)/2,
                                (frame.size.height-wid)/2,
                                wid, wid);
-    square = CGRectInset(square, 10, 10);
+    square = CGRectInset(square, 4, 4);
     _iconView.frame = square;
     _doneMarkLabel.frame = _iconView.frame;
     
@@ -139,7 +140,7 @@
                                                         andTimingFunction:kCAMediaTimingFunctionEaseIn];
     
     CAAnimation* moveUp = [YLShareAnimationHelper positionYAnimationFrom:_titleLabel.layer.position.y
-                                                                      to:_titleLabel.layer.position.y-20
+                                                                      to:_titleLabel.layer.position.y-_titleLabel.frame.size.height
                                                             withDuration:0.2 andDelay:0.3
                                                        andTimingFunction:kCAMediaTimingFunctionEaseIn];
     
@@ -154,7 +155,7 @@
                                                           withDuration:0.2 andDelay:0.3
                                                      andTimingFunction:kCAMediaTimingFunctionEaseIn];
     
-    CAAnimation* moveUp2 = [YLShareAnimationHelper positionYAnimationFrom:_doneLabel.layer.position.y+20
+    CAAnimation* moveUp2 = [YLShareAnimationHelper positionYAnimationFrom:_doneLabel.layer.position.y+_doneLabel.frame.size.height
                                                                        to:_doneLabel.layer.position.y
                                                              withDuration:0.2 andDelay:0.3
                                                         andTimingFunction:kCAMediaTimingFunctionEaseIn];

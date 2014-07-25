@@ -63,8 +63,8 @@
 
 - (void)createAllShareBtnsWithShareItems:(NSArray*)shareItems {
     int n = (int)shareItems.count;
-    const CGFloat distance = 85.f;
-    const CGFloat shareSize = 80;
+    const CGFloat distance = 100.f;
+    const CGFloat shareSize = 60;
     CGFloat angle = M_PI/(n*2);
     _avgAng = angle;
     for (int i=0; i<n; i++) {
