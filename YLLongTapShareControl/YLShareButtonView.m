@@ -40,6 +40,7 @@
         _isSelected = NO;
         _isDone = NO;
         [self _setup];
+        self.layer.opacity = 0;
     }
     return self;
 }
@@ -61,6 +62,7 @@
     _titleLabel.font = [UIFont systemFontOfSize:14];
     _titleLabel.textColor = [UIColor whiteColor];
     _titleLabel.backgroundColor = [UIColor clearColor];
+    _titleLabel.layer.opacity = 0;
     [_titleLabel sizeToFit];
     _doneLabel = [[UILabel alloc] init];
     _doneLabel.textAlignment = NSTextAlignmentCenter;
@@ -165,12 +167,16 @@
     [_doneLabel.layer addAnimation:doneAnimation forKey:@"doneMoveIn"];
 }
 
-- (void)showAnimation {
+- (void)showAnimationWithDelay:(CGFloat)delay {
     
     CAAnimation* animation = [YLShareAnimationHelper scaleAnimationFrom:0.01 to:1.0
-                                                           withDuration:0.8 andDelay:0.0
+                                                           withDuration:0.8 andDelay:delay
                                                       andTimingFunction:nil andIsSpring:YES];
-    [self.layer addAnimation:animation forKey:@"showAnimation"];
+    CAAnimation* opacity = [YLShareAnimationHelper opacityAnimationFrom:0 to:1
+                                                           withDuration:0.001 andDelay:delay
+                                                      andTimingFunction:kCAMediaTimingFunctionLinear];
+    CAAnimation* group = [YLShareAnimationHelper groupAnimationWithAnimations:@[animation, opacity] andDuration:0.8+delay];
+    [self.layer addAnimation:group forKey:@"showAnimation"];
 }
 
 
@@ -199,6 +205,11 @@
                                                            withDuration:0.25 andDelay:0
                                                       andTimingFunction:kCAMediaTimingFunctionEaseOut];
     [_iconLayer addAnimation:blend forKey:@"blend"];
+    
+    CAAnimation* titleOpacity = [YLShareAnimationHelper opacityAnimationFrom:0 to:1
+                                                                withDuration:0.25 andDelay:0
+                                                           andTimingFunction:kCAMediaTimingFunctionEaseOut];
+    [_titleLabel.layer addAnimation:titleOpacity forKey:@"showTitle"];
 }
 
 - (void)resetAnimation {
@@ -226,6 +237,12 @@
                                                            withDuration:0.25 andDelay:0
                                                       andTimingFunction:kCAMediaTimingFunctionEaseOut];
     [_iconLayer addAnimation:blend forKey:@"blend"];
+    
+    
+    CAAnimation* titleOpacity = [YLShareAnimationHelper opacityAnimationFrom:1 to:0
+                                                                withDuration:0.25 andDelay:0
+                                                           andTimingFunction:kCAMediaTimingFunctionEaseOut];
+    [_titleLabel.layer addAnimation:titleOpacity forKey:@"hideTitle"];
 }
 
 @end

@@ -63,7 +63,7 @@
 
 - (void)createAllShareBtnsWithShareItems:(NSArray*)shareItems {
     int n = (int)shareItems.count;
-    const CGFloat distance = 100.f;
+    const CGFloat distance = 85.f;
     const CGFloat shareSize = 80;
     CGFloat angle = M_PI/(n*2);
     _avgAng = angle;
@@ -77,7 +77,6 @@
         CGRect frame = CGRectMake(p.x-shareSize/2, p.y-shareSize/2, shareSize, shareSize);
         YLShareButtonView* view = [[YLShareButtonView alloc] initWithIcon:item.icon andTitle:item.title];
         view.frame = frame;
-        view.hidden = YES;
         [self addSubview:view];
         [_shareBtns addObject:view];
     }
@@ -178,11 +177,8 @@
     
     for (int i=0; i<_shareBtns.count; i++) {
         YLShareButtonView* view = (YLShareButtonView*)_shareBtns[i];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((scaleTime + disappTime + 0.1*i) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            view.hidden = NO;
-            [view showAnimation];
-            self.state = YLShareViewOpened;
-        });
+        [view showAnimationWithDelay:(scaleTime + disappTime + 0.1*i)];
+        self.state = YLShareViewOpened;
     }
     
     self.completionHandler = handler;

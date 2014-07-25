@@ -14,8 +14,9 @@
 @property (nonatomic, copy, readonly) NSString* shareTitle;
 
 - (id)initWithIcon:(UIImage*)icon andTitle:(NSString*)title;
+
+- (void)showAnimationWithDelay:(CGFloat)delay;
 - (void)animateToDoneWithHandler:(void(^)())doneBlock;
-- (void)showAnimation;
 - (void)selectAnimation;
 - (void)resetAnimation;
 
