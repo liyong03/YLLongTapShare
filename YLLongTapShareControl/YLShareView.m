@@ -65,11 +65,12 @@
     int n = (int)shareItems.count;
     const CGFloat distance = 100.f;
     const CGFloat shareSize = 60;
-    CGFloat angle = M_PI/(n*2);
+    CGFloat angle = M_PI/(3*2); // using the angle of 3 items is best
     _avgAng = angle;
+    CGFloat startAngle = M_PI_2 - (n-1)*angle;
     for (int i=0; i<n; i++) {
         YLShareItem* item = (YLShareItem*)shareItems[i];
-        CGFloat fan = angle*(i*2+1);
+        CGFloat fan = startAngle + angle*i*2;
         CGPoint p;
         p.x = roundf(-distance * cosf(fan) + self.bounds.size.width/2);
         p.y = roundf(-distance * sinf(fan) + self.bounds.size.height/2);
