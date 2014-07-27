@@ -10,4 +10,6 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *longTapShareButton;
+
 @end
