@@ -33,6 +33,8 @@
 		4EDADD48197EAA7A001BF09E /* YLShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD40197EAA7A001BF09E /* YLShareView.m */; };
 		4EDADD4B197EAAB5001BF09E /* YLLongTapShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */; };
 		4EDADD4C197EAAB5001BF09E /* YLLongTapShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */; };
+		4EE3D109198692EB00679E88 /* UIButton+LongTapShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE3D108198692EB00679E88 /* UIButton+LongTapShare.m */; };
+		4EE3D10A198692EB00679E88 /* UIButton+LongTapShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE3D108198692EB00679E88 /* UIButton+LongTapShare.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		4EDADD40197EAA7A001BF09E /* YLShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLShareView.m; sourceTree = "<group>"; };
 		4EDADD49197EAAB5001BF09E /* YLLongTapShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLLongTapShareView.h; sourceTree = "<group>"; };
 		4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLLongTapShareView.m; sourceTree = "<group>"; };
+		4EE3D107198692EB00679E88 /* UIButton+LongTapShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LongTapShare.h"; sourceTree = "<group>"; };
+		4EE3D108198692EB00679E88 /* UIButton+LongTapShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LongTapShare.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,8 @@
 				4EDADD40197EAA7A001BF09E /* YLShareView.m */,
 				4EDADD49197EAAB5001BF09E /* YLLongTapShareView.h */,
 				4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */,
+				4EE3D107198692EB00679E88 /* UIButton+LongTapShare.h */,
+				4EE3D108198692EB00679E88 /* UIButton+LongTapShare.m */,
 			);
 			name = YLLongTapShareControl;
 			path = ../YLLongTapShareControl;
@@ -305,6 +311,7 @@
 				4EDADD47197EAA7A001BF09E /* YLShareView.m in Sources */,
 				4EDADD43197EAA7A001BF09E /* Evaluate.m in Sources */,
 				4EDADD4B197EAAB5001BF09E /* YLLongTapShareView.m in Sources */,
+				4EE3D109198692EB00679E88 /* UIButton+LongTapShare.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +326,7 @@
 				4EDADD46197EAA7A001BF09E /* YLShareButtonView.m in Sources */,
 				4ECF3D72197E78C100194637 /* YLLongTapShareControlDemoTests.m in Sources */,
 				4EDADD4C197EAAB5001BF09E /* YLLongTapShareView.m in Sources */,
+				4EE3D10A198692EB00679E88 /* UIButton+LongTapShare.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

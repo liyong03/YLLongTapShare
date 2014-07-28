@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YLLongTapShareView.h"
+#import "UIButton+LongTapShare.h"
 
 @interface ViewController ()
 

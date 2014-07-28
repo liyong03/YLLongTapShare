@@ -39,3 +39,9 @@ typedef void (^SelectedHandler)(NSUInteger index, YLShareItem* item);
 - (void)slideTo:(CGPoint)point;
 
 @end
+
+@protocol YLLongTapShareDelegate <NSObject>
+
+- (void)longTapShareView:(UIView*)view didSelectShareTo:(YLShareItem*)item withIndex:(NSUInteger)index;
+
+@end
