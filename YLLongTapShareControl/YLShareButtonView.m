@@ -46,6 +46,7 @@
 }
 
 - (void)_setup {
+    _tintColor = [UIColor whiteColor];
     self.backgroundColor = [UIColor clearColor];
     _iconView = [[UIImageView alloc] initWithImage:_shareIcon];
     _iconView.contentMode = UIViewContentModeScaleAspectFit;
@@ -61,7 +62,7 @@
     _titleLabel.text = _shareTitle;
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.font = [UIFont systemFontOfSize:14];
-    _titleLabel.textColor = [UIColor whiteColor];
+    _titleLabel.textColor = _tintColor;
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.layer.opacity = 0;
     [_titleLabel sizeToFit];
@@ -70,7 +71,7 @@
     _doneLabel.text = @"done!";
     _doneLabel.hidden = YES;
     _doneLabel.font = [UIFont systemFontOfSize:14];
-    _doneLabel.textColor = [UIColor whiteColor];
+    _doneLabel.textColor = _tintColor;
     _doneLabel.backgroundColor = [UIColor clearColor];
     [_doneLabel sizeToFit];
     
@@ -80,13 +81,23 @@
     [self addSubview:_doneLabel];
     
     _iconLayer = [CAShapeLayer layer];
-    _iconLayer.fillColor = [[UIColor whiteColor] colorWithAlphaComponent:0.0].CGColor;
-    _iconLayer.strokeColor = [UIColor whiteColor].CGColor;
+    _iconLayer.fillColor = [_tintColor colorWithAlphaComponent:0.0].CGColor;
+    _iconLayer.strokeColor = _tintColor.CGColor;
     _iconLayer.lineWidth = 2;
     _iconLayer.anchorPoint = CGPointMake(0.5, 0.5);
     _iconLayer.opacity = 1.0;
     [self.layer insertSublayer:_iconLayer above:_iconView.layer];
 
+}
+
+- (void)setTintColor:(UIColor *)tintColor {
+    _tintColor = tintColor;
+    
+    _iconLayer.fillColor = [_tintColor colorWithAlphaComponent:0.0].CGColor;
+    _iconLayer.strokeColor = _tintColor.CGColor;
+    
+    _doneLabel.textColor = _tintColor;
+    _titleLabel.textColor = _tintColor;
 }
 
 - (void)layoutSubviews {
@@ -113,10 +124,10 @@
         return;
     _isDone = YES;
     
-    CAAnimation* animation = [YLShareAnimationHelper fillColorAnimationFrom:[[UIColor whiteColor] colorWithAlphaComponent:0.5]
-                                                                        to:[UIColor whiteColor]
-                                                              withDuration:0.5 andDelay:0
-                                                         andTimingFunction:kCAMediaTimingFunctionEaseOut];
+    CAAnimation* animation = [YLShareAnimationHelper fillColorAnimationFrom:[self.tintColor colorWithAlphaComponent:0.5]
+                                                                         to:self.tintColor
+                                                               withDuration:0.5 andDelay:0
+                                                          andTimingFunction:kCAMediaTimingFunctionEaseOut];
     
     [_iconLayer addAnimation:animation forKey:@"fillToWhite"];
     
@@ -201,8 +212,8 @@
     [self.layer addAnimation:selectAnimation forKey:@"selectAnimation"];
     
     
-    CAAnimation* blend = [YLShareAnimationHelper fillColorAnimationFrom:[[UIColor whiteColor] colorWithAlphaComponent:0]
-                                                                     to:[[UIColor whiteColor] colorWithAlphaComponent:0.5]
+    CAAnimation* blend = [YLShareAnimationHelper fillColorAnimationFrom:[self.tintColor colorWithAlphaComponent:0]
+                                                                     to:[self.tintColor colorWithAlphaComponent:0.5]
                                                            withDuration:0.25 andDelay:0
                                                       andTimingFunction:kCAMediaTimingFunctionEaseOut];
     [_iconLayer addAnimation:blend forKey:@"blend"];
@@ -233,8 +244,8 @@
     
     [self.layer addAnimation:unSelectAnimation forKey:@"unSelectAnimation"];
     
-    CAAnimation* blend = [YLShareAnimationHelper fillColorAnimationFrom:[[UIColor whiteColor] colorWithAlphaComponent:0.5]
-                                                                     to:[[UIColor whiteColor] colorWithAlphaComponent:0]
+    CAAnimation* blend = [YLShareAnimationHelper fillColorAnimationFrom:[self.tintColor colorWithAlphaComponent:0.5]
+                                                                     to:[self.tintColor colorWithAlphaComponent:0]
                                                            withDuration:0.25 andDelay:0
                                                       andTimingFunction:kCAMediaTimingFunctionEaseOut];
     [_iconLayer addAnimation:blend forKey:@"blend"];

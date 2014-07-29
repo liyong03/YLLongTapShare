@@ -77,6 +77,7 @@
         
         CGRect frame = CGRectMake(p.x-shareSize/2, p.y-shareSize/2, shareSize, shareSize);
         YLShareButtonView* view = [[YLShareButtonView alloc] initWithIcon:item.icon andTitle:item.title];
+        view.tintColor = _tintColor;
         view.frame = frame;
         [self addSubview:view];
         [_shareBtns addObject:view];
@@ -88,10 +89,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        _tintColor = [UIColor whiteColor];
         
         _layer = [CAShapeLayer layer];
         _layer.fillColor = [UIColor clearColor].CGColor;
-        _layer.strokeColor = [UIColor whiteColor].CGColor;
+        _layer.strokeColor = self.tintColor.CGColor;
         _layer.lineWidth = 2;
         _layer.lineCap= kCALineCapRound;
         _layer.lineJoin = kCALineJoinRound;
@@ -99,22 +101,35 @@
         [self.layer addSublayer:_layer];
         
         _bgLayer = [CAShapeLayer layer];
-        _bgLayer.fillColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8].CGColor;
-        _bgLayer.strokeColor = [UIColor whiteColor].CGColor;
+        _bgLayer.fillColor = [self.tintColor colorWithAlphaComponent:0.8].CGColor;
+        _bgLayer.strokeColor = self.tintColor.CGColor;
         _bgLayer.lineWidth = 2;
         [self.layer addSublayer:_bgLayer];
         _bgLayer.anchorPoint = CGPointMake(0.5, 0.5);
         _bgLayer.opacity = 0.0;
         
         _btnLayer = [CAShapeLayer layer];
-        _btnLayer.fillColor = [UIColor whiteColor].CGColor;
-        _btnLayer.strokeColor = [UIColor whiteColor].CGColor;
+        _btnLayer.fillColor = self.tintColor.CGColor;
+        _btnLayer.strokeColor = self.tintColor.CGColor;
         _btnLayer.lineWidth = 2;
         [self.layer addSublayer:_btnLayer];
         _btnLayer.anchorPoint = CGPointMake(0.5, 0.5);
         _btnLayer.opacity = 1.0;
     }
     return self;
+}
+
+- (void)setTintColor:(UIColor *)tintColor {
+    _tintColor = tintColor;
+    _layer.strokeColor = self.tintColor.CGColor;
+    _bgLayer.fillColor = [self.tintColor colorWithAlphaComponent:0.8].CGColor;
+    _bgLayer.strokeColor = self.tintColor.CGColor;
+    _btnLayer.fillColor = self.tintColor.CGColor;
+    _btnLayer.strokeColor = self.tintColor.CGColor;
+    
+    for (YLShareButtonView* view in _shareBtns) {
+        view.tintColor = _tintColor;
+    }
 }
 
 - (void)layoutSubviews {

@@ -26,6 +26,7 @@ typedef void (^SelectedHandler)(NSUInteger index, YLShareItem* item);
 
 @interface YLShareView : UIView
 
+@property (nonatomic, strong) UIColor *tintColor;
 @property (nonatomic, assign, readonly) YLShareViewState state;
 
 - (id)initWithShareItems:(NSArray*)shareItems;
@@ -41,6 +42,10 @@ typedef void (^SelectedHandler)(NSUInteger index, YLShareItem* item);
 @end
 
 @protocol YLLongTapShareDelegate <NSObject>
+
+@optional
+
+- (UIColor*)colorOfShareView;
 
 - (void)longTapShareView:(UIView*)view didSelectShareTo:(YLShareItem*)item withIndex:(NSUInteger)index;
 

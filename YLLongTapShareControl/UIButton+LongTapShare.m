@@ -67,6 +67,9 @@ const void* UIButtonShareDelegatesKey = &UIButtonShareDelegatesKey;
             CGPoint touchPoint = [touch locationInView:self];
             
             YLShareView* effectView = [[YLShareView alloc] initWithShareItems:self.shareItems];
+            if ([self.delegate respondsToSelector:@selector(colorOfShareView)]) {
+                effectView.tintColor = [self.delegate colorOfShareView];
+            }
             __weak UIButton* weakSelf = self;
             [effectView showShareViewInView:self at:touchPoint withCompletion:^(NSUInteger index, YLShareItem *item) {
                 if ([weakSelf.delegate respondsToSelector:@selector(longTapShareView:didSelectShareTo:withIndex:)]) {
