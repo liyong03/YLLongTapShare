@@ -16,7 +16,7 @@
 @end
 
 @implementation YLLongTapShareView {
-    YLShareView*    _effectView;
+    YLShareView*    _shareView;
 }
 @synthesize shareItems = _shareItems;
 
@@ -50,7 +50,7 @@
                     [weakSelf.delegate longTapShareView:weakSelf didSelectShareTo:item withIndex:index];
                 }
             }];
-            _effectView = effectView;
+            _shareView = effectView;
         }
     }
 }
@@ -59,15 +59,15 @@
     UITouch* touch = [[touches objectEnumerator] allObjects].firstObject;
     {
         if (touch) {
-            CGPoint touchPoint = [touch locationInView:_effectView];
-            [_effectView slideTo:touchPoint];
+            CGPoint touchPoint = [touch locationInView:_shareView];
+            [_shareView slideTo:touchPoint];
         }
     }
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
-    [_effectView dismissShareView];
-    _effectView = nil;
+    [_shareView dismissShareView];
+    _shareView = nil;
 }
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesCancelled:touches withEvent:event];
