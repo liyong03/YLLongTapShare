@@ -5,6 +5,11 @@ Long Tap Sharing control for iOS. Inspired by [this design](https://dribbble.com
 
 <img src="./joy.gif" align="middle" width="320" />
 
+###Get Start
+Using [CocoaPods](http://cocoapods.org/) to get start, you can add following line to your Podfile:
+    
+    pod 'YLLongTapShare'
+
 ###How to use it
 For using this control, it's very easy, after adding source file to your project, using following code to enable the long tap share function.
 
