@@ -35,6 +35,7 @@
 		4EDADD4C197EAAB5001BF09E /* YLLongTapShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */; };
 		4EE3D109198692EB00679E88 /* UIButton+LongTapShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE3D108198692EB00679E88 /* UIButton+LongTapShare.m */; };
 		4EE3D10A198692EB00679E88 /* UIButton+LongTapShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE3D108198692EB00679E88 /* UIButton+LongTapShare.m */; };
+		DF904C6B19CF1E8D00B63399 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF904C6A19CF1E8D00B63399 /* Launch Screen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		4EDADD4A197EAAB5001BF09E /* YLLongTapShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLLongTapShareView.m; sourceTree = "<group>"; };
 		4EE3D107198692EB00679E88 /* UIButton+LongTapShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LongTapShare.h"; sourceTree = "<group>"; };
 		4EE3D108198692EB00679E88 /* UIButton+LongTapShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LongTapShare.m"; sourceTree = "<group>"; };
+		DF904C6A19CF1E8D00B63399 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				4ECF3D55197E78C100194637 /* AppDelegate.h */,
 				4ECF3D56197E78C100194637 /* AppDelegate.m */,
 				4ECF3D58197E78C100194637 /* Main.storyboard */,
+				DF904C6A19CF1E8D00B63399 /* Launch Screen.xib */,
 				4ECF3D5B197E78C100194637 /* ViewController.h */,
 				4ECF3D5C197E78C100194637 /* ViewController.m */,
 				4ECF3D5E197E78C100194637 /* Images.xcassets */,
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ECF3D5F197E78C100194637 /* Images.xcassets in Resources */,
+				DF904C6B19CF1E8D00B63399 /* Launch Screen.xib in Resources */,
 				4ECF3D51197E78C100194637 /* InfoPlist.strings in Resources */,
 				4ECF3D5A197E78C100194637 /* Main.storyboard in Resources */,
 			);
